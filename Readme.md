@@ -183,7 +183,7 @@ If an invalid type or no joke is found:
 
 1. Install dependencies:
    ```sh
-   pip install flask flask_bootstrap requests
+   pip install flask flask_bootstrap requests pync
    ```
 
 2. Run the Flask GUI:
@@ -204,6 +204,13 @@ If an invalid type or no joke is found:
    ```
 
 <img src="Joke Generator CLI.png" alt="Joke Generator" width="400" />
+
+5. Run the Notifier Script:
+```sh
+python gui/notifier.py
+```
+
+<img src="Joke Notifier.png" alt="Joke Generator" width="400" />
 
 ---
 
