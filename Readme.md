@@ -246,3 +246,5 @@ crontab -e
 
 - **Documentation:**  
   Add OpenAPI docs manually or use the `paperclip` crate for Swagger integration.
+
+> This project was casually coded.
