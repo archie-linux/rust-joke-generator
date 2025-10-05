@@ -212,6 +212,17 @@ python gui/notifier.py
 
 <img src="Joke Notifier.png" alt="Joke Generator" width="400" />
 
+6. Run all Components At Once:
+```sh
+
+./setup.sh
+./run_all.sh
+
+## Setup Cron Job
+
+crontab -e
+@reboot <path_to_[run_all.sh]_script>
+```
 ---
 
 ## Best Practices Implemented
