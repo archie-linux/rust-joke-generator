@@ -203,7 +203,9 @@ If an invalid type or no joke is found:
    python cli/app.py
    ```
 
-<img src="Joke Generator CLI.png" alt="Joke Generator" width="400" />
+<img src="Joke Generator CLI 1.png" alt="Joke Generator" width="400" />
+
+<img src="Joke Generator CLI 2.png" alt="Joke Generator" width="400" />
 
 5. Run the Notifier Script:
 ```sh

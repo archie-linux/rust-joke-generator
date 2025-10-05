@@ -17,29 +17,37 @@ def get_random_joke(joke_type=None):
         return response.json()
     return None
 
+def int_to_roman(num):
+    val = [1, 2, 3, 4]
+    syms = ["I", "II", "III", "IV"]
+    if 1 <= num <= 4:
+        return syms[num - 1]
+    return str(num)
+
 def main():
     joke_types = get_joke_types()
     if not joke_types:
         print("Could not fetch joke types from the API.")
         return
 
+    # Only allow up to 4 choices
+    joke_types = joke_types[:4]
+    option_romans = [int_to_roman(i + 1) for i in range(len(joke_types))]
+    exit_roman = int_to_roman(len(joke_types) + 1)
+
     while True:
         print("\nSelect a joke type:")
-        for idx, jt in enumerate(joke_types, 1):
-            print(f"{idx}. {jt.title()}")
-        print(f"{len(joke_types)+1}. Exit")
+        for idx, jt in enumerate(joke_types):
+            print(f"{option_romans[idx]}. {jt.title()}")
+        print(f"{exit_roman}. Exit")
 
-        try:
-            choice = int(input("Enter your choice: "))
-        except ValueError:
-            print("Invalid input. Please enter a number.")
-            continue
+        choice = input("Enter your choice (I, II, III, IV): ").strip().upper()
 
-        if choice == len(joke_types) + 1:
+        if choice == exit_roman:
             print("Goodbye!")
             break
-        elif 1 <= choice <= len(joke_types):
-            selected_type = joke_types[choice - 1]
+        elif choice in option_romans:
+            selected_type = joke_types[option_romans.index(choice)]
             joke = get_random_joke(selected_type)
             if joke:
                 print(f"\n[{joke['type'].title()} Joke]")
