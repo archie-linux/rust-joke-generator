@@ -171,11 +171,32 @@ If an invalid type or no joke is found:
 
 ## Run the Project
 
-1. Build and run:
+1. Build and run the Rust API:
    ```sh
    cargo run
    ```
 2. Access the API at [http://localhost:8000](http://localhost:8000)
+
+---
+
+## Run the Flask GUI
+
+1. Install dependencies:
+   ```sh
+   pip install flask flask_bootstrap requests
+   ```
+
+2. Run the Flask GUI:
+   ```sh
+   python gui/app.py
+   ```
+
+3. Open your browser and go to:
+   ```
+   http://127.0.0.1:5000
+   ```
+
+<img src="Joke Generator.png" alt="Joke Generator" width="400" />
 
 ---
 

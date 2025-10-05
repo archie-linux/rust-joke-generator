@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Jokes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .dropdown-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #joke_type.form-control {
+            width: 180px;
+            min-width: 120px;
+            max-width: 180px;
+        }
+        .btn-primary {
+            width: 180px;
+        }
+        .btn-danger {
+            width: 180px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Joke Generator</h1>
+        <div class="d-flex justify-content-center mb-2">
+            <form method="POST" action="{{ url_for('get_joke') }}" class="text-center d-flex">
+                <div class="form-group mb-0 d-flex align-items-center">
+                    <div class="input-group dropdown-container">
+                        <select name="joke_type" id="joke_type" class="form-control">
+                            {% for type in joke_types %}
+                                <option value="{{ type }}" {% if selected_type == type or (not selected_type and type == "general") %}selected{% endif %}>{{ type.title() }}</option>
+                            {% endfor %}
+                        </select>
+                        <div style="width: 16px;"></div>
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-primary mr-2">Get a Joke</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form method="POST" action="{{ url_for('clear_jokes') }}" class="ml-2">
+                <button type="submit" class="btn btn-danger">Clear Jokes</button>
+            </form>
+        </div>
+        <div class="list-group mt-4">
+            {% for joke in jokes %}
+                <div class="list-group-item">
+                    {% if joke.joke_type %}
+                        <div class="mb-2">
+                            <span class="badge badge-info" style="font-size:1rem;">{{ joke.joke_type|title }}</span>
+                        </div>
+                    {% endif %}
+                    <h5 class="mb-1">{{ joke.setup }}</h5>
+                    <p class="mb-1">{{ joke.punchline }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
