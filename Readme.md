@@ -196,7 +196,14 @@ If an invalid type or no joke is found:
    http://127.0.0.1:5000
    ```
 
-<img src="Joke Generator.png" alt="Joke Generator" width="400" />
+<img src="Joke Generator GUI.png" alt="Joke Generator" width="400" />
+
+4. Run the CLI APP:
+   ```sh
+   python cli/app.py
+   ```
+
+<img src="Joke Generator CLI.png" alt="Joke Generator" width="400" />
 
 ---
 
